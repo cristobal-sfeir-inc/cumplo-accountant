@@ -1,3 +1,5 @@
+"""Login dependency that authenticates users against Cumplo's API."""
+
 from http import HTTPStatus
 from logging import getLogger
 from typing import cast

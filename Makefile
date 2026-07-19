@@ -13,9 +13,17 @@ login:
 # Runs linters
 .PHONY: lint
 lint:
-	@ruff check --fix
-	@ruff format
-	@mypy --config-file pyproject.toml .
+	@poetry run ruff check .
+	@poetry run ruff format --check .
+	@poetry run basedpyright
+	@poetry run docformatter --check --recursive .
+
+# Auto-fixes formatting and lint violations
+.PHONY: format
+format:
+	@poetry run ruff format .
+	@poetry run ruff check --fix .
+	@poetry run docformatter --in-place --recursive .
 
 # Builds the Docker image
 .PHONY: build
