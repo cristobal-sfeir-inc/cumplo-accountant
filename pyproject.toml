@@ -40,6 +40,8 @@ build-backend = "poetry.core.masonry.api"
 [tool.pyright]
 pythonVersion = "3.13"
 typeCheckingMode = "standard"
+reportPrivateImportUsage = "none"
+reportIncompatibleVariableOverride = "none"
 
 [tool.ruff]
 line-length = 120
@@ -93,3 +95,4 @@ wrap-descriptions = 120
 wrap-summaries = 120
 recursive = true
 blank = true
+exclude = [".venv"]
