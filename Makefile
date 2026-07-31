@@ -1,7 +1,7 @@
-include .env
+-include .env
 export
 
-PYTHON_VERSION := $(shell python -c "print(open('.python-version').read().strip())")
+PYTHON_VERSION := $(shell python -c "print(open('.python-version').read().strip())" 2>/dev/null)
 INSTALLED_VERSION := $(shell python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 
 # Activates the project configuration and logs in to gcloud
