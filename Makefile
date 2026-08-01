@@ -1,7 +1,7 @@
-include .env
+-include .env
 export
 
-PYTHON_VERSION := $(shell python -c "print(open('.python-version').read().strip())")
+PYTHON_VERSION := $(shell python -c "print(open('.python-version').read().strip())" 2>/dev/null)
 INSTALLED_VERSION := $(shell python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 
 # Activates the project configuration and logs in to gcloud
@@ -13,9 +13,17 @@ login:
 # Runs linters
 .PHONY: lint
 lint:
-	@ruff check --fix
-	@ruff format
-	@mypy --config-file pyproject.toml .
+	@poetry run ruff check .
+	@poetry run ruff format --check .
+	@poetry run basedpyright
+	@poetry run docformatter --check --recursive .
+
+# Auto-fixes formatting and lint violations
+.PHONY: format
+format:
+	@poetry run ruff format .
+	@poetry run ruff check --fix .
+	@poetry run docformatter --in-place --recursive .
 
 # Builds the Docker image
 .PHONY: build

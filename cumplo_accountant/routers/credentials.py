@@ -1,3 +1,5 @@
+"""Router for credentials management endpoints."""
+
 from http import HTTPStatus
 from logging import getLogger
 from typing import cast

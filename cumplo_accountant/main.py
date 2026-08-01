@@ -1,3 +1,5 @@
+"""FastAPI application entry point for cumplo-accountant."""
+
 from logging import CRITICAL, DEBUG, basicConfig, getLogger
 
 import google.cloud.logging

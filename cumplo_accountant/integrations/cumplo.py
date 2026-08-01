@@ -1,3 +1,5 @@
+"""HTTP client for Cumplo's Global API."""
+
 from http import HTTPMethod
 from logging import getLogger
 

@@ -1,3 +1,5 @@
+"""Router for balance retrieval endpoints."""
+
 from enum import StrEnum
 from http import HTTPStatus
 from logging import getLogger

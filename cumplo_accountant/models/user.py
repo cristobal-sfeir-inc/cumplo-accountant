@@ -1,3 +1,5 @@
+"""Domain model extensions for authenticated Cumplo users."""
+
 from cumplo_common.models import Credentials, Session, User
 
 
