@@ -36,7 +36,7 @@ deploys to Cloud Run — it does NOT run lint/type/tests. PR-check enforcement l
 - **Private registry auth.** `cumplo-common` lives in a private Artifact Registry. For local dev,
   set `GOOGLE_APPLICATION_CREDENTIALS` pointing to a service account key with read access, or run
   `gcloud auth application-default login` and install `keyrings-google-artifactregistry-auth`.
-  CI uses Workload Identity Federation (WIF) via `vars.WIF_PROVIDER` / `vars.PUBLISH_SA`.
+  CI uses Workload Identity Federation (WIF) via `vars.WIF_PROVIDER` / `vars.READER_SA`.
 - **Dockerfile still targets Python 3.12.** Update the `FROM python:3.12-slim-bookworm` base
   image to `3.13-slim-bookworm` in a follow-up to align with `pyproject.toml`.
 - **No test suite.** The service currently has no tests. Treat any new path you touch as
